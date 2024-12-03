@@ -14,8 +14,12 @@ import java.util.*;
  */
 public class Main
 {
+    /*
+     * TODO: Add data view output
+     */
     static GeneratePage generatePage = new GeneratePage();
     static DataStruct getData = new DataStruct();
+    static Tutor tutor = new Tutor();
     static Scanner input = new Scanner(System.in);
     private static void exitApp()
     {
@@ -45,10 +49,9 @@ public class Main
             }
             catch (NumberFormatException e)
             {
-                //
+                generatePage.defaultFooterEnd(1);
             }
-            generatePage.body("Empty",1);
-            generatePage.headerFooter();
+            generatePage.defaultFooterEnd(1);
             if
             (
                 /* If input is valid */
@@ -81,8 +84,7 @@ public class Main
                         generatePage.body("Empty",4);
                         userLogin = generatePage.bodyWithContent(2,"Masukkan email",true);
                         userPassword = generatePage.bodyWithContent(2,"Masukkan password",true);
-                        generatePage.body("Empty",4);
-                        generatePage.headerFooter();
+                        generatePage.defaultFooterEnd(4);
                         if (getData.userLoginData.containsKey(userLogin) && getData.userLoginData.get(userLogin).equals(userPassword))
                         {
                             validUserLogin = true;
@@ -154,23 +156,34 @@ public class Main
                         generatePage.bodyWithContent(2,"Jenis kelamin : " + tempUserGender,false);
                         generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
                         generatePage.body("Empty",2);
-                        String temp = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
-                        generatePage.body("Empty",2);
-                        generatePage.headerFooter();
+                        String tempConfirmInput = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
+                        generatePage.defaultFooterEnd(2);
 
-                        /* Check if role is not user, then prompt user to re-enter data */
-                        if (!(tempUserRole.equals("user")))
+                        /* Confirm user data input */
+                        confirmUserDataInput = !tempConfirmInput.equalsIgnoreCase("1");
+
+                        /* Check if role is not avaliable in role list, then prompt user to re-enter data */
+                        do
                         {
-                            System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
-                            continue;
+                            confirmUserDataInput = false;
+                            for (int i = 0; i < getData.VALID_USER_ROLE.length; i++)
+                            {
+                                if (getData.VALID_USER_ROLE[i].equals(tempUserRole))
+                                {
+                                    confirmUserDataInput = true;
+                                }
+                            }
+                            if ((!(tempConfirmInput.equalsIgnoreCase("1"))) && confirmUserDataInput == false)
+                            {
+                                System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
+                            }
                         }
-                        /* Will default to true (data confirmed as valid by user) and should proceed to next step */
-                        confirmUserDataInput = !temp.equalsIgnoreCase("1");
+                        while (!(confirmUserDataInput));
                     }
 
                     /* When valid, insert to getData.userData */
                     getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
-                    getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
+                    getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
                     userType = tempUserRole;
                 }
                 if (userType.equals("admin"))
@@ -179,9 +192,46 @@ public class Main
                     System.err.println(userLogin);
                     System.err.println(userType);
                 }
-                else if (userType.equals("user"))
+                else if (userType.equals("tutor"))
                 {
-                    System.err.println("USER LOG");
+                    while (true)
+                    {
+                        System.err.println("TUTOR LOG");
+                        System.err.println(userType);
+                        System.err.println(userLogin);
+                        generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                        generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
+                        generatePage.body("generatePage.Body", 2);
+                        generatePage.body("Empty",1);
+                        for (int i = 0; i < getData.TUTOR_MAIN_PAGE.length; i++)
+                        {
+                            generatePage.bodyWithContent(2,(i + 1) + ". " + getData.TUTOR_MAIN_PAGE[i],false);
+                        }
+                        generatePage.body("Empty",1);
+                        generatePage.bodyWithContent(2,"4. Log out",false);
+                        generatePage.body("Empty",2);
+                        try
+                        {
+                            menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+                        }
+                        catch (NumberFormatException e)
+                        {
+                            generatePage.defaultFooterEnd(3);
+                        }
+                        generatePage.defaultFooterEnd(3);
+                        if (menuChoose == 4)
+                        {
+                            break;
+                        }
+                        if (!(tutor.mainPage(menuChoose)))
+                        {
+                            generatePage.defaultFalseInput();
+                        }
+                    }
+                }
+                else if (userType.equals("tutee"))
+                {
+                    System.err.println("TUTEE LOG");
                     System.err.println(userType);
                     System.err.println(userLogin);
                 }

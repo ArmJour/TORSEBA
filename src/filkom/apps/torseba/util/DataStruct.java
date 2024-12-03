@@ -14,13 +14,27 @@ import java.util.*;
 public class DataStruct
 {
     public final int BOX_WIDTH = 200; /* Width of the box */
-    public final int MAX_DATA_AMOUNT = 100; /* Max data amount */
     public final String DEFAULT_HEADER = "Selamat Datang"; /* Default header */
     public final String DEFAULT_SUB_HEADER = "TORSEBA"; /* Default sub header */
-    public final String DEFAULT_CURRENCY = "Rp"; /* Default currency */
     public HashMap<String,String> userLoginData = new HashMap<>(); /* Email and password  */
     public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
-    public String[] tableHeaderData = /* Table header for displaying user / driver data */
+    public ArrayList<String> video = new ArrayList<>(); /* Video */
+    public ArrayList<String> note = new ArrayList<>(); /* Note */
+    public ArrayList<String> tutorList = new ArrayList<>(); /* Tutor list */
+    public ArrayList<String> tutorReport = new ArrayList<>(); /* Tutor report */
+    public final Map<Integer,String> TUTOR_CONTENT_ADD = Map.ofEntries /* Menu add */
+    (
+        Map.entry(1,"video"),
+        Map.entry(2,"catatan"),
+        Map.entry(3,"laporan")
+    );
+    public final String[] VALID_USER_ROLE = /* Valid user list */
+    {
+        "admin",
+        "tutor",
+        "tutee"
+    };
+    public final String[] TABLE_HEADER_DATA = /* Table header for displaying user data */
     {
         "Email",
         "Password",
@@ -30,5 +44,11 @@ public class DataStruct
         "Telepon",
         "Jenis Kelamin",
         "Tempat, tanggal lahir"
+    };
+    public final String[] TUTOR_MAIN_PAGE =
+    {
+        "Upload video",
+        "Upload catatan",
+        "Tambah laporan",
     };
 }
