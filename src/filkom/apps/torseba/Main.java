@@ -218,20 +218,30 @@ public class Main
                     menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
                     generatePage.body("Empty",3);
                     generatePage.headerFooter();
-                    // generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-                    // generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
-                    // generatePage.body("generatePage.Body", 2);
-                    // generatePage.bodyWithContent(2,getData.DEFAULT_CURRENCY + ". " + getData.income,false);
-                    // generatePage.bodyWithContent(2,"1. Masukkan data",false);
-                    // generatePage.bodyWithContent(2,"2. Input gaji",false);
-                    // generatePage.bodyWithContent(2,"3. Kembali ke menu utama (log out)",false);
-                    // generatePage.bodyWithContent(2,"4. Lihat data",false);
-                    // generatePage.body("Empty", 1);
-                    // generatePage.bodyWithContent(2,"5. Keluar aplikasi", false);
-                    // generatePage.body("Empty", 2);
-                    // menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
-                    // generatePage.body("Empty",3);
-                    // generatePage.headerFooter();
+                    switch (menuChoose)
+                    {
+                        case 1:
+                            //
+                            break;
+                        case 2:
+                            //
+                            break;
+                        case 3:
+                            //
+                            break;
+                        case 4:
+                            //
+                            break;
+                        case 5:
+                            //
+                            break;
+                        case 6:
+                            //
+                            break;
+                        default:
+                            generatePage.defaultFalseInput();
+                            break;
+                    }
                 }
                 else if (userType.equals("tutee"))
                 {
