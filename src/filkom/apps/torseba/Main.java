@@ -221,6 +221,10 @@ public class Main
                         generatePage.defaultFooterEnd(3);
                     }
                     generatePage.defaultFooterEnd(3);
+                    if (!(tutor.mainPage(menuChoose)))
+                    {
+                        generatePage.defaultFalseInput();
+                    };
                 }
                 else if (userType.equals("tutee"))
                 {
