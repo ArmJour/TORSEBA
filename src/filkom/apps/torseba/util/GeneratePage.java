@@ -36,6 +36,11 @@ public class GeneratePage
         /* Default print when input is not valid (will be used everywhere) */
         System.out.println("\n" + "Input yang anda masukkan salah, silahkan masukkan input kembali");
     }
+    public void defaultFooterEnd(int space)
+    {
+        body("Empty",space);
+        headerFooter();
+    }
     public void headerFooter()
     {
         /* Print header and footer */
