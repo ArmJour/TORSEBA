@@ -16,6 +16,7 @@ public class Main
 {
     static GeneratePage generatePage = new GeneratePage();
     static DataStruct getData = new DataStruct();
+    static Tutor tutor = new Tutor();
     static Scanner input = new Scanner(System.in);
     private static void exitApp()
     {
@@ -45,10 +46,9 @@ public class Main
             }
             catch (NumberFormatException e)
             {
-                //
+                generatePage.defaultFooterEnd(1);
             }
-            generatePage.body("Empty",1);
-            generatePage.headerFooter();
+            generatePage.defaultFooterEnd(1);
             if
             (
                 /* If input is valid */
@@ -81,8 +81,7 @@ public class Main
                         generatePage.body("Empty",4);
                         userLogin = generatePage.bodyWithContent(2,"Masukkan email",true);
                         userPassword = generatePage.bodyWithContent(2,"Masukkan password",true);
-                        generatePage.body("Empty",4);
-                        generatePage.headerFooter();
+                        generatePage.defaultFooterEnd(4);
                         if (getData.userLoginData.containsKey(userLogin) && getData.userLoginData.get(userLogin).equals(userPassword))
                         {
                             validUserLogin = true;
@@ -155,8 +154,7 @@ public class Main
                         generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
                         generatePage.body("Empty",2);
                         String tempConfirmInput = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
-                        generatePage.body("Empty",2);
-                        generatePage.headerFooter();
+                        generatePage.defaultFooterEnd(2);
 
                         /* Confirm user data input */
                         confirmUserDataInput = !tempConfirmInput.equalsIgnoreCase("1");
@@ -214,33 +212,15 @@ public class Main
                     generatePage.body("Empty", 1);
                     generatePage.bodyWithContent(2,"6. Keluar aplikasi", false);
                     generatePage.body("Empty", 2);
-                    menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
-                    generatePage.body("Empty",3);
-                    generatePage.headerFooter();
-                    switch (menuChoose)
+                    try
                     {
-                        case 1:
-                            //
-                            break;
-                        case 2:
-                            //
-                            break;
-                        case 3:
-                            //
-                            break;
-                        case 4:
-                            //
-                            break;
-                        case 5:
-                            //
-                            break;
-                        case 6:
-                            //
-                            break;
-                        default:
-                            generatePage.defaultFalseInput();
-                            break;
+                        menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
                     }
+                    catch (NumberFormatException e)
+                    {
+                        generatePage.defaultFooterEnd(3);
+                    }
+                    generatePage.defaultFooterEnd(3);
                 }
                 else if (userType.equals("tutee"))
                 {
