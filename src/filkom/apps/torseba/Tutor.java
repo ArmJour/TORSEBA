@@ -16,7 +16,7 @@ public class Tutor
     }
     private void menuOperation(int menuChoose)
     {
-        generatePage.defaultWelcomeHeader(getData."Tambah Data");
+        generatePage.defaultWelcomeHeader("Tambah Data");
         generatePage.body("Empty",2);
         String tempContentAdd = generatePage.bodyWithContent(2,("Masukkan nama" + " " + getData.TUTOR_CONTENT_ADD.get(menuChoose)),false);
         if (menuChoose == 1)
