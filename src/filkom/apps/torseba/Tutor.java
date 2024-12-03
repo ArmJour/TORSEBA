@@ -7,7 +7,7 @@ public class Tutor
     static GeneratePage generatePage = new GeneratePage();
     public boolean mainPage(int menuChoose)
     {
-        if (menuChoose <= 1 && menuChoose > getData.TUTOR_MAIN_PAGE.length)
+        if (menuChoose >= 1 && menuChoose <= getData.TUTOR_MAIN_PAGE.length)
         {
             menuOperation(menuChoose);
             return true;
@@ -18,7 +18,7 @@ public class Tutor
     {
         generatePage.defaultWelcomeHeader("Tambah Data");
         generatePage.body("Empty",2);
-        String tempContentAdd = generatePage.bodyWithContent(2,("Masukkan nama" + " " + getData.TUTOR_CONTENT_ADD.get(menuChoose)),false);
+        String tempContentAdd = generatePage.bodyWithContent(2,("Masukkan nama" + " " + getData.TUTOR_CONTENT_ADD.get(menuChoose)),true);
         if (menuChoose == 1)
         {
             getData.video.add(tempContentAdd);
