@@ -26,8 +26,7 @@ public class DataStruct
     (
         Map.entry(1,"video"),
         Map.entry(2,"catatan"),
-        Map.entry(3,"tutor"),
-        Map.entry(4,"laporan")
+        Map.entry(3,"laporan")
     );
     public final String[] VALID_USER_ROLE = /* Valid user list */
     {
@@ -50,7 +49,6 @@ public class DataStruct
     {
         "Upload video",
         "Upload catatan",
-        "Lihat daftar tutor",
-        "Lihat laporan",
+        "Tambah laporan",
     };
 }

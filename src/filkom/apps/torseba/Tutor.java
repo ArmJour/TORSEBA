@@ -29,12 +29,11 @@ public class Tutor
         }
         else if (menuChoose == 3)
         {
-            getData.tutorList.add(tempContentAdd);
-        }
-        else if (menuChoose == 4)
-        {
             getData.tutorReport.add(tempContentAdd);
         }
         generatePage.defaultFooterEnd(3);
+        System.err.println(getData.tutorReport);
+        System.err.println(getData.note);
+        System.err.println(getData.video);
     }
 }
