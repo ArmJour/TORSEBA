@@ -22,6 +22,13 @@ public class DataStruct
     public ArrayList<String> note = new ArrayList<>(); /* Note */
     public ArrayList<String> tutorList = new ArrayList<>(); /* Tutor list */
     public ArrayList<String> tutorReport = new ArrayList<>(); /* Tutor report */
+    public final Map<Integer,String> TUTOR_CONTENT_ADD = Map.ofEntries /* Menu add */
+    (
+        Map.entry(1,"video"),
+        Map.entry(2,"catatan"),
+        Map.entry(3,"tutor"),
+        Map.entry(4,"laporan")
+    );
     public final String[] VALID_USER_ROLE = /* Valid user list */
     {
         "admin",
