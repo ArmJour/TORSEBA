@@ -18,7 +18,7 @@ public class DataStruct
     public final String DEFAULT_SUB_HEADER = "TORSEBA"; /* Default sub header */
     public HashMap<String,String> userLoginData = new HashMap<>(); /* Email and password  */
     public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
-    public final String[] VALID_USER_OPTION =
+    public final String[] VALID_USER_ROLE = /* Valid user list */
     {
         /*"admin",*/ /* Disabled */
         "tutor",
