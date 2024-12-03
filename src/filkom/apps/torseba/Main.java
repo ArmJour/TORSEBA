@@ -224,7 +224,7 @@ public class Main
                     if (!(tutor.mainPage(menuChoose)))
                     {
                         generatePage.defaultFalseInput();
-                    };
+                    }
                 }
                 else if (userType.equals("tutee"))
                 {
