@@ -196,6 +196,42 @@ public class Main
                     System.err.println("TUTOR LOG");
                     System.err.println(userType);
                     System.err.println(userLogin);
+                    /*
+                     * Upload video
+                     * Upload catatan
+                     * Liat daftar tutor
+                     * Liat laporan
+                     * Edit
+                     */
+                    generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                    generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
+                    generatePage.body("generatePage.Body", 2);
+                    generatePage.body("Empty", 1);
+                    generatePage.bodyWithContent(2,"1. Upload video",false);
+                    generatePage.bodyWithContent(2,"2. Upload catatan",false);
+                    generatePage.bodyWithContent(2,"3. Lihat daftar tutor",false);
+                    generatePage.bodyWithContent(2,"4. Lihat laporan",false);
+                    generatePage.bodyWithContent(2,"5. Edit",false);
+                    generatePage.body("Empty", 1);
+                    generatePage.bodyWithContent(2,"6. Keluar aplikasi", false);
+                    generatePage.body("Empty", 2);
+                    menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+                    generatePage.body("Empty",3);
+                    generatePage.headerFooter();
+                    // generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                    // generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
+                    // generatePage.body("generatePage.Body", 2);
+                    // generatePage.bodyWithContent(2,getData.DEFAULT_CURRENCY + ". " + getData.income,false);
+                    // generatePage.bodyWithContent(2,"1. Masukkan data",false);
+                    // generatePage.bodyWithContent(2,"2. Input gaji",false);
+                    // generatePage.bodyWithContent(2,"3. Kembali ke menu utama (log out)",false);
+                    // generatePage.bodyWithContent(2,"4. Lihat data",false);
+                    // generatePage.body("Empty", 1);
+                    // generatePage.bodyWithContent(2,"5. Keluar aplikasi", false);
+                    // generatePage.body("Empty", 2);
+                    // menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+                    // generatePage.body("Empty",3);
+                    // generatePage.headerFooter();
                 }
                 else if (userType.equals("tutee"))
                 {
