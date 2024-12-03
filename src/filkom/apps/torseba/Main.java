@@ -207,11 +207,10 @@ public class Main
                     generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
                     generatePage.body("generatePage.Body", 2);
                     generatePage.body("Empty", 1);
-                    generatePage.bodyWithContent(2,"1. Upload video",false);
-                    generatePage.bodyWithContent(2,"2. Upload catatan",false);
-                    generatePage.bodyWithContent(2,"3. Lihat daftar tutor",false);
-                    generatePage.bodyWithContent(2,"4. Lihat laporan",false);
-                    generatePage.bodyWithContent(2,"5. Edit",false);
+                    for (int i = 0; i < getData.TUTOR_MAIN_PAGE.length; i++)
+                    {
+                        generatePage.bodyWithContent(2,(i + 1) + ". " + getData.TUTOR_MAIN_PAGE[i],false);
+                    }
                     generatePage.body("Empty", 1);
                     generatePage.bodyWithContent(2,"6. Keluar aplikasi", false);
                     generatePage.body("Empty", 2);

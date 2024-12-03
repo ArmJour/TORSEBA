@@ -18,7 +18,7 @@ public class DataStruct
     public final String DEFAULT_SUB_HEADER = "TORSEBA"; /* Default sub header */
     public HashMap<String,String> userLoginData = new HashMap<>(); /* Email and password  */
     public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
-    public HashMap<String,List<String>> appData = new HashMap<>();
+    public HashMap<String,List<String>> appData = new HashMap<>(); /* App data */
     /*
     * Upload video
     * Upload catatan
@@ -42,5 +42,13 @@ public class DataStruct
         "Telepon",
         "Jenis Kelamin",
         "Tempat, tanggal lahir"
+    };
+    public final String[] TUTOR_MAIN_PAGE =
+    {
+        "Upload video",
+        "Upload catatan",
+        "Lihat daftar tutor",
+        "Lihat laporan",
+        "Edit"
     };
 }
