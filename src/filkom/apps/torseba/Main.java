@@ -204,14 +204,14 @@ public class Main
                     generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
                     generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
                     generatePage.body("generatePage.Body", 2);
-                    generatePage.body("Empty", 1);
+                    generatePage.body("Empty",1);
                     for (int i = 0; i < getData.TUTOR_MAIN_PAGE.length; i++)
                     {
                         generatePage.bodyWithContent(2,(i + 1) + ". " + getData.TUTOR_MAIN_PAGE[i],false);
                     }
-                    generatePage.body("Empty", 1);
-                    generatePage.bodyWithContent(2,"6. Keluar aplikasi", false);
-                    generatePage.body("Empty", 2);
+                    generatePage.body("Empty",1);
+                    generatePage.bodyWithContent(2,"6. Keluar aplikasi",false);
+                    generatePage.body("Empty",2);
                     try
                     {
                         menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
