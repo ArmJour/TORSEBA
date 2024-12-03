@@ -18,14 +18,10 @@ public class DataStruct
     public final String DEFAULT_SUB_HEADER = "TORSEBA"; /* Default sub header */
     public HashMap<String,String> userLoginData = new HashMap<>(); /* Email and password  */
     public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
-    public HashMap<String,List<String>> appData = new HashMap<>(); /* App data */
-    /*
-    * Upload video
-    * Upload catatan
-    * Liat daftar tutor
-    * Liat laporan
-    * Edit
-    */
+    public ArrayList<String> video = new ArrayList<>(); /* Video */
+    public ArrayList<String> note = new ArrayList<>(); /* Note */
+    public ArrayList<String> tutorList = new ArrayList<>(); /* Tutor list */
+    public ArrayList<String> tutorReport = new ArrayList<>(); /* Tutor report */
     public final String[] VALID_USER_ROLE = /* Valid user list */
     {
         "admin",
@@ -49,6 +45,5 @@ public class DataStruct
         "Upload catatan",
         "Lihat daftar tutor",
         "Lihat laporan",
-        "Edit"
     };
 }
