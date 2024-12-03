@@ -20,7 +20,7 @@ public class DataStruct
     public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
     public final String[] VALID_USER_ROLE = /* Valid user list */
     {
-        /*"admin",*/ /* Disabled */
+        "admin",
         "tutor",
         "tutee"
     };
