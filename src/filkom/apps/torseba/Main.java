@@ -154,25 +154,30 @@ public class Main
                         generatePage.bodyWithContent(2,"Jenis kelamin : " + tempUserGender,false);
                         generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
                         generatePage.body("Empty",2);
-                        String temp = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
+                        String tempConfirmInput = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
                         generatePage.body("Empty",2);
                         generatePage.headerFooter();
 
-                        /* Check if role is not user, then prompt user to re-enter data */
-                        confirmUserDataInput = !temp.equalsIgnoreCase("1");
-                        for (int i = 0; i < getData.VALID_USER_ROLE.length; i++)
+                        /* Confirm user data input */
+                        confirmUserDataInput = !tempConfirmInput.equalsIgnoreCase("1");
+
+                        /* Check if role is not avaliable in role list, then prompt user to re-enter data */
+                        do
                         {
-                            if (getData.VALID_USER_ROLE[i].equals(tempUserRole))
+                            confirmUserDataInput = false;
+                            for (int i = 0; i < getData.VALID_USER_ROLE.length; i++)
                             {
-                                confirmUserDataInput = true;
+                                if (getData.VALID_USER_ROLE[i].equals(tempUserRole))
+                                {
+                                    confirmUserDataInput = true;
+                                }
+                            }
+                            if ((!(tempConfirmInput.equalsIgnoreCase("1"))) && confirmUserDataInput == false)
+                            {
+                                System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
                             }
                         }
-                        // if (!(tempUserRole.equals("user")))
-                        // {
-                        //     System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
-                        //     continue;
-                        // }
-                        /* Will default to true (data confirmed as valid by user) and should proceed to next step */
+                        while (!(confirmUserDataInput));
                     }
 
                     /* When valid, insert to getData.userData */
