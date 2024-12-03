@@ -191,39 +191,39 @@ public class Main
                 }
                 else if (userType.equals("tutor"))
                 {
-                    System.err.println("TUTOR LOG");
-                    System.err.println(userType);
-                    System.err.println(userLogin);
-                    /*
-                     * Upload video
-                     * Upload catatan
-                     * Liat daftar tutor
-                     * Liat laporan
-                     * Edit
-                     */
-                    generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-                    generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
-                    generatePage.body("generatePage.Body", 2);
-                    generatePage.body("Empty",1);
-                    for (int i = 0; i < getData.TUTOR_MAIN_PAGE.length; i++)
+                    while (true)
                     {
-                        generatePage.bodyWithContent(2,(i + 1) + ". " + getData.TUTOR_MAIN_PAGE[i],false);
-                    }
-                    generatePage.body("Empty",1);
-                    generatePage.bodyWithContent(2,"6. Keluar aplikasi",false);
-                    generatePage.body("Empty",2);
-                    try
-                    {
-                        menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
-                    }
-                    catch (NumberFormatException e)
-                    {
+                        System.err.println("TUTOR LOG");
+                        System.err.println(userType);
+                        System.err.println(userLogin);
+                        generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                        generatePage.bodyWithContent(2,"Anda login sebagai " + userLogin,false);
+                        generatePage.body("generatePage.Body", 2);
+                        generatePage.body("Empty",1);
+                        for (int i = 0; i < getData.TUTOR_MAIN_PAGE.length; i++)
+                        {
+                            generatePage.bodyWithContent(2,(i + 1) + ". " + getData.TUTOR_MAIN_PAGE[i],false);
+                        }
+                        generatePage.body("Empty",1);
+                        generatePage.bodyWithContent(2,"4. Log out",false);
+                        generatePage.body("Empty",2);
+                        try
+                        {
+                            menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+                        }
+                        catch (NumberFormatException e)
+                        {
+                            generatePage.defaultFooterEnd(3);
+                        }
                         generatePage.defaultFooterEnd(3);
-                    }
-                    generatePage.defaultFooterEnd(3);
-                    if (!(tutor.mainPage(menuChoose)))
-                    {
-                        generatePage.defaultFalseInput();
+                        if (menuChoose == 4)
+                        {
+                            break;
+                        }
+                        if (!(tutor.mainPage(menuChoose)))
+                        {
+                            generatePage.defaultFalseInput();
+                        }
                     }
                 }
                 else if (userType.equals("tutee"))
