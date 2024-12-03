@@ -14,6 +14,9 @@ import java.util.*;
  */
 public class Main
 {
+    /*
+     * TODO: Add data view output
+     */
     static GeneratePage generatePage = new GeneratePage();
     static DataStruct getData = new DataStruct();
     static Tutor tutor = new Tutor();
