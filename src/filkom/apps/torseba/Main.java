@@ -159,18 +159,25 @@ public class Main
                         generatePage.headerFooter();
 
                         /* Check if role is not user, then prompt user to re-enter data */
-                        if (!(tempUserRole.equals("user")))
-                        {
-                            System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
-                            continue;
-                        }
-                        /* Will default to true (data confirmed as valid by user) and should proceed to next step */
                         confirmUserDataInput = !temp.equalsIgnoreCase("1");
+                        for (int i = 0; i < getData.VALID_USER_ROLE.length; i++)
+                        {
+                            if (getData.VALID_USER_ROLE[i].equals(tempUserRole))
+                            {
+                                confirmUserDataInput = true;
+                            }
+                        }
+                        // if (!(tempUserRole.equals("user")))
+                        // {
+                        //     System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
+                        //     continue;
+                        // }
+                        /* Will default to true (data confirmed as valid by user) and should proceed to next step */
                     }
 
                     /* When valid, insert to getData.userData */
                     getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
-                    getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
+                    getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
                     userType = tempUserRole;
                 }
                 if (userType.equals("admin"))
@@ -179,9 +186,15 @@ public class Main
                     System.err.println(userLogin);
                     System.err.println(userType);
                 }
-                else if (userType.equals("user"))
+                else if (userType.equals("tutor"))
                 {
-                    System.err.println("USER LOG");
+                    System.err.println("TUTOR LOG");
+                    System.err.println(userType);
+                    System.err.println(userLogin);
+                }
+                else if (userType.equals("tutee"))
+                {
+                    System.err.println("TUTEE LOG");
                     System.err.println(userType);
                     System.err.println(userLogin);
                 }
