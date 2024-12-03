@@ -5,6 +5,7 @@ import java.util.*;
 public class Tutor
 {
     static DataStruct getData = new DataStruct();
+    static Scanner input = new Scanner(System.in);
     public boolean mainPage(int menuChoose)
     {
         if (menuChoose <= 1 && menuChoose > getData.TUTOR_MAIN_PAGE.length)
@@ -16,32 +17,21 @@ public class Tutor
     }
     private void menuOperation(int menuChoose)
     {
-        /*
-         * "Upload video",
-         * "Upload catatan",
-         * "Lihat daftar tutor",
-         * "Lihat laporan",
-         * "Edit"
-         */
         if (menuChoose == 1)
         {
-            //
+            getData.video.add(input.nextLine());
         }
         else if (menuChoose == 2)
         {
-            //
+            getData.note.add(input.nextLine());
         }
         else if (menuChoose == 3)
         {
-            //
+            getData.tutorList.add(input.nextLine());
         }
         else if (menuChoose == 4)
         {
-            //
-        }
-        else if (menuChoose == 5)
-        {
-            //
+            getData.tutorReport.add(input.nextLine());
         }
     }
 }
